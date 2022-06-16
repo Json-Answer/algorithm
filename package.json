@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "node dist/main.js",
+    "dev": "nodemon src/main.ts",
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "@types/node": "^17.0.44"
+  }
+}
