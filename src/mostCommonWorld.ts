@@ -6,10 +6,16 @@ export interface MostCommonWorldProps {
   banned?: string[];
 }
 
+/**
+ * 获取出现过次数最多的单词 Get the most frequent word
+ */
 export class MostCommonWord {
   private paragraph: string = "";
   private banned: string[] = [];
   private popular: string = "";
+  /**
+   * @param props { object } { paragraph: String, banned: String[] }
+   */
   constructor(props?: MostCommonWorldProps) {
     const { paragraph, banned } = props || {};
     this.setParagraph(paragraph || "");
@@ -70,9 +76,17 @@ export class MostCommonWord {
   }
 }
 
-const mostCommonWord = ({ paragraph, banned }: MostCommonWorldProps) => {
-  const method = new MostCommonWord({paragraph, banned});
-  return method.get()
+/**
+ * 获取出现过次数最多的单词 Get the most frequent word
+ * @param props { Object } { paragraph: String, banned: String[] }
+ * @returns String
+ */
+const mostCommonWord = ({
+  paragraph,
+  banned,
+}: MostCommonWorldProps): string => {
+  const method = new MostCommonWord({ paragraph, banned });
+  return method.get();
 };
 
 export default mostCommonWord;
