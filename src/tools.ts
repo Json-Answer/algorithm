@@ -1,3 +1,3 @@
-export const print = (...args: any) => {
+export const print = (...args: any):void => {
   console.log(...args);
 };

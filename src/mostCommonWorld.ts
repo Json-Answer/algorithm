@@ -21,23 +21,23 @@ export class MostCommonWord {
     this.setParagraph(paragraph || "");
     this.setBanned(banned || []);
   }
-  public setParagraph(paragraph: string) {
+  public setParagraph(paragraph: string):void {
     this.paragraph = paragraph;
   }
-  public setBanned(banned: string[]) {
+  public setBanned(banned: string[]):void {
     this.banned = banned;
   }
-  private setPopular(popular: string) {
+  private setPopular(popular: string):void {
     this.popular = popular;
   }
-  get() {
+  public get():string {
     const worlds = this.paragraph.split(" ");
     const newWorlds = this.clearSymbols(worlds);
     const worldObj = this.toObject(newWorlds);
     this.setPopular(this.getPopular(worldObj));
     return this.popular;
   }
-  private clearSymbols(worlds: string[]) {
+  private clearSymbols(worlds: string[]):string[] {
     const symbols: RegExp =
       /[`~!@#$^\-&*()=|{}':;',\\\[\]\.<>\/?~！@#￥……&*（）——|{}【】'；：""'。，、？\s]/g;
     const result: string[] = [];
@@ -46,7 +46,7 @@ export class MostCommonWord {
     });
     return result;
   }
-  private toObject(worlds: string[]) {
+  private toObject(worlds: string[]):DynamicIndex {
     const result: DynamicIndex = {};
     for (let i = 0, len = worlds.length; i < len; i++) {
       const key = worlds[i].toLowerCase();
@@ -71,20 +71,18 @@ export class MostCommonWord {
     }
     return max.key || "";
   }
-  public printProps() {
+  public printProps():void {
     print({ paragraph: this.paragraph, banned: this.banned });
   }
 }
 
 /**
  * 获取出现过次数最多的单词 Get the most frequent word
- * @param props { Object } { paragraph: String, banned: String[] }
- * @returns String
+ * @param paragraph string
+ * @param banned string[]
+ * @returns string
  */
-const mostCommonWord = ({
-  paragraph,
-  banned,
-}: MostCommonWorldProps): string => {
+const mostCommonWord = (paragraph: string, banned?: string[]): string => {
   const method = new MostCommonWord({ paragraph, banned });
   return method.get();
 };
