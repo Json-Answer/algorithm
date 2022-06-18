@@ -16,4 +16,4 @@ print(format(new Date()));
 
 print(unique([{ a: 1 }, { a: 1, b: { a: 1 } }], "a"));
 
-print(toHex(1200,16))
+print(toHex(1200,2))

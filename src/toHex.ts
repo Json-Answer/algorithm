@@ -34,13 +34,16 @@ const dict: string[] = [
  * @param baseNum { number } 进制数 base number
  * @returns string
  */
-const toHex = (num: number, baseNum: number): string => {
+const toHex = (num: number, baseNum: number): string | Error => {
+  if(baseNum < 2 || baseNum > 36){
+    return new Error("Params Error: baseNum is a number from 2-36!")
+  }
   let res: string = "";
   let temp: string = String(num);
   const tempArr: string[] = [];
   let continued: boolean = true;
   do {
-    if (parseInt(temp) > baseNum) {
+    if (parseInt(temp) >= baseNum) {
       tempArr.push(getDict(String(parseInt(temp) % baseNum)));
       temp = String(Math.floor(parseInt(temp) / baseNum));
     } else {
