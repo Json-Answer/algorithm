@@ -2,6 +2,7 @@ import worldPop, { MostCommonWord } from "./mostCommonWorld";
 import { print } from "./tools";
 import format from "./dateFormat";
 import unique from "./unique";
+import toHex from './toHex';
 
 print("hello word");
 
@@ -14,3 +15,5 @@ print(worldPop(paragraphData.paragraph, paragraphData.banned));
 print(format(new Date()));
 
 print(unique([{ a: 1 }, { a: 1, b: { a: 1 } }], "a"));
+
+print(toHex(1200,16))
