@@ -17,7 +17,7 @@ export interface TimeSynchronizationProps {
  * 同步时间,使用场景: 当自己电脑时间和服务器时间不同时,校正时间和添加定时任务可用
  * Synchronize time, usage scenarios: When your computer time is different from the server time, correct time and add timed tasks are available.
  */
-class timeSynchronization {
+class TimeSynchronization {
   private time: number = 0;
   private clockTime: number[] = [];
   private interval: NodeJS.Timeout | null = null;
@@ -140,4 +140,4 @@ class timeSynchronization {
   };
 }
 
-export default timeSynchronization;
+export default TimeSynchronization;
