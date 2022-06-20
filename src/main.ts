@@ -19,5 +19,5 @@ print(format(new Date()));
 print(unique([{ a: 1 }, { a: 1, b: { a: 1 } }], "a"));
 // result: [ { a: 1, b: { a: 1 } } ]
 
-print(toHex(1200,2))
+print(toHex('4b0', 2, 16))
 // result: 10010110000
