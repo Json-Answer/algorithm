@@ -4,6 +4,7 @@ import format from "./dateFormat";
 import unique from "./unique";
 import toHex from "./toHex";
 import timeCheck from "./timeSynchronization";
+import delay from "./delay";
 
 print("hello word");
 
@@ -45,3 +46,9 @@ setTimeout(() => {
   time.clear();
   print(`定时器清除,现在是${format(time.getTime())}`)
 }, 1000*10);
+
+(async function(){
+  print('进入');
+  delay(2000,print('我先进来了'))
+  print('我想先进入')
+})()
