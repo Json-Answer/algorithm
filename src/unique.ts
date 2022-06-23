@@ -1,4 +1,4 @@
-import { DynamicIndex } from "./commonTypes";
+import { DynamicIndex } from "./types/commonTypes";
 
 /**
  * 数组去重,可以去重对象数组,也可根据对象某个键值来去重 Array deduplication, you can deduplicate the object array, or you can deduplicate according to a certain key value of the object

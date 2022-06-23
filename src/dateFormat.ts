@@ -1,4 +1,4 @@
-import { DynamicIndex } from "./commonTypes";
+import { DynamicIndex } from "./types/commonTypes";
 import keepDigits from "./keepDigits";
 
 /**
