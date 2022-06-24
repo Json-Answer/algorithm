@@ -9,6 +9,7 @@ import QuickSort from "./sort/quickSort";
 import insertionSort from "./sort/insertionSort";
 import bubbleSort from "./sort/bubbleSort";
 import keepDigits from "./keepDigits";
+import shuffleArray from "./shuffleAarray";
 
 print("hello word");
 
@@ -21,7 +22,7 @@ print(worldPop(paragraphData.paragraph, paragraphData.banned));
 // result: ball
 
 // 保留有效整数 keep valid integers
-print(keepDigits(8,4))
+print(keepDigits(8, 4));
 // result: 0008
 
 // 时间格式化 time formatting
@@ -82,3 +83,7 @@ print(bubbleSort(arr));
 print("插入排序 insertion sort");
 print(insertionSort(arr));
 // result: [ 1, 2, 3, 4, 5, 8, 9]
+
+// 打乱数组 Shuffle the array
+print("打乱数组 Shuffle the array");
+print(shuffleArray(arr));
