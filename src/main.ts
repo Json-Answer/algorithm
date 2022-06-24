@@ -5,9 +5,10 @@ import unique from "./unique";
 import toHex from "./toHex";
 import timeCheck from "./timeSynchronization";
 import delay from "./delay";
-import QuickSort from "./quickSort";
-import insertionSort from "./insertionSort";
-import bubbleSort from "./bubbleSort";
+import QuickSort from "./sort/quickSort";
+import insertionSort from "./sort/insertionSort";
+import bubbleSort from "./sort/bubbleSort";
+import keepDigits from "./keepDigits";
 
 print("hello word");
 
@@ -18,6 +19,10 @@ const paragraphData = {
 };
 print(worldPop(paragraphData.paragraph, paragraphData.banned));
 // result: ball
+
+// 保留有效整数 keep valid integers
+print(keepDigits(8,4))
+// result: 0008
 
 // 时间格式化 time formatting
 print(format(new Date()));

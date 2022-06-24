@@ -1,6 +1,6 @@
 /**
  * 保留整数有效数字位
- * @param number { number }
+ * @param number { number } 原数字 number
  * @param digital { number } 保留位数 number of digits
  * @returns string
  */
