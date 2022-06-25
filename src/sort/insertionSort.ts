@@ -5,14 +5,15 @@
  */
 const insertionSort = (arr: number[]): number[] => {
   const res: number[] = [...arr];
-  const len: number = res.length;
-  for (let i = 0; i < len - 1; i++) {
-    for (let j = i + 1; j > 0; j--) {
-      if (res[j] >= res[j - 1]) break;
-      const temp: number = res[j - 1];
-      res[j - 1] = res[j];
-      res[j] = temp;
+  var len = res.length;
+  for (let i = 1; i < len; i++) {
+    let p: number = i - 1;
+    const current: number = res[i];
+    while (p >= 0 && res[p] > current) {
+      res[p + 1] = res[p];
+      p--;
     }
+    res[p + 1] = current;
   }
   return res;
 };

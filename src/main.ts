@@ -87,3 +87,12 @@ print(insertionSort(arr));
 // 打乱数组 Shuffle the array
 print("打乱数组 Shuffle the array");
 print(shuffleArray(arr));
+
+// 随机生成数组
+const arr1: number[] = [];
+while (arr1.length < 10000) {
+  const num: number = Math.round(Math.random() * 100000);
+  if (arr1.indexOf(num) === -1) {
+    arr1.push(num);
+  }
+}
