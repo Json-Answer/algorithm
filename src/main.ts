@@ -10,6 +10,7 @@ import insertionSort from "./sort/insertionSort";
 import bubbleSort from "./sort/bubbleSort";
 import keepDigits from "./keepDigits";
 import shuffleArray from "./shuffleAarray";
+import flatten from "./flatten";
 
 print("hello word");
 
@@ -96,3 +97,7 @@ while (arr1.length < 10000) {
     arr1.push(num);
   }
 }
+
+// 数组扁平化
+print(flatten([1,2,3,[1,2]]))
+// result: [ 1, 2, 3, 1, 2 ]
