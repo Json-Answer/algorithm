@@ -1,5 +1,5 @@
-import { DynamicIndex } from "./types/commonTypes";
-import { print } from "./tools";
+import { DynamicIndex } from "../types/commonTypes";
+import { print } from "../tools";
 
 export interface MostCommonWorldProps {
   paragraph: string;

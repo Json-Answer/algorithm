@@ -1,4 +1,4 @@
-import worldPop, { MostCommonWord } from "./mostCommonWorld";
+import worldPop, { MostCommonWord } from "./leetCode/mostCommonWorld";
 import { print } from "./tools";
 import format from "./dateFormat";
 import unique from "./unique";
@@ -11,6 +11,7 @@ import bubbleSort from "./sort/bubbleSort";
 import keepDigits from "./keepDigits";
 import shuffleArray from "./shuffleAarray";
 import flatten from "./flatten";
+import twoSum from "./leetCode/twoSum";
 
 print("hello word");
 
@@ -99,5 +100,8 @@ while (arr1.length < 10000) {
 }
 
 // 数组扁平化
-print(flatten([1,2,3,[1,2]]))
+print(flatten([1, 2, 3, [1, 2]]));
 // result: [ 1, 2, 3, 1, 2 ]
+
+print(twoSum([2, 7, 11, 15], 18));
+// result: [1, 2]
