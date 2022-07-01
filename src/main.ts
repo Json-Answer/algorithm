@@ -14,6 +14,7 @@ import flatten from "./flatten";
 import twoSum from "./leetCode/twoSum";
 import toFixed from "./toFixed";
 import generate from "./generRedomArray";
+import isEmptyObject from "./isEmptyObject";
 
 print("hello word");
 
@@ -115,3 +116,8 @@ print(twoSum([2, 7, 11, 15], 18));
 print("保留小数位数 Preserve decimal places.");
 print(toFixed(10.2881, 2));
 // result: "10.29"
+
+// 判断是否对象是否是空对象 Determine if an object is an empty object.
+print("判断是否对象是否是空对象 Determine if an object is an empty object.");
+print(isEmptyObject({}));
+// result: true

@@ -10,8 +10,8 @@ const toFixed = (number: number | string, num: number): string => {
   if (typeof number === "string") {
     temp = Number(number);
   }
-  temp = Math.round(temp * unit) / unit;
-  
+  temp = Math.round(temp * unit) / unit || 0;
+
   const arr: any[] = temp.toString().split(".");
   if (arr.length === 1) {
     arr.push(".");
@@ -20,13 +20,13 @@ const toFixed = (number: number | string, num: number): string => {
     }
     return arr.join("");
   }
-  const decimal:string = arr.pop();
-  arr.push(".")
-  const dArr:string[] = decimal.split("");
+  const decimal: string = arr.pop();
+  arr.push(".");
+  const dArr: string[] = decimal.split("");
   for (let i = 0, time = num - dArr.length; i < time; i++) {
     dArr.push("0");
   }
-  return arr.join("")+dArr.join("");
+  return arr.join("") + dArr.join("");
 };
 
 export default toFixed;
