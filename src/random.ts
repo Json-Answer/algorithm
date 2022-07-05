@@ -3,7 +3,7 @@
  * @param interval { number | number[] } 范围,如果只有一个值就从0开始 range, starting at 0 if there is only one value
  * @returns number
  */
-const random = (interval: number[] | number): number | undefined => {
+const random = (interval: number[] | number): number => {
   if (typeof interval === "number" || interval[0] === 0) {
     const inter: number = typeof interval === "number" ? interval : interval[1];
     return Math.round(Math.random() * inter);
@@ -12,5 +12,7 @@ const random = (interval: number[] | number): number | undefined => {
   if (num > interval[0]) {
     return num;
   }
-  random(interval);
+  return random(interval);
 };
+
+export default random;
