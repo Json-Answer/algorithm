@@ -16,6 +16,7 @@ interface OptionProps {
   headers?: any;
   method?: string;
   data?: DynamicIndex;
+  timeout?: number;
 }
 
 let reqNum: number = 0;
@@ -36,6 +37,8 @@ const clearLoading = (): void => {
   }
 };
 
+const controller = new AbortController();
+const signal = controller.signal;
 /**
  * 请求 request
  * @param url { string }
@@ -50,6 +53,7 @@ const request = (url: string, option?: OptionProps): Promise<void> =>
       ...(option?.headers || {}),
     };
     let params: DynamicIndex | string | null = { ...(option?.data || {}) };
+    const timeout: number = option?.timeout || 9999999;
     const method: string = option?.method ? option.method.toUpperCase() : "GET";
     if (typeReg.test(headers["Content-Type"]) && method !== "GET") {
       params = qs.stringify(params as object);
@@ -59,12 +63,16 @@ const request = (url: string, option?: OptionProps): Promise<void> =>
       params = null;
     }
     try {
-      const res = await fetch(`${useUrl}${url}`, {
-        method,
-        headers,
-        body: params as BodyInit,
-        mode: "cors",
-      });
+      const res: any = await Promise.race([
+        fetch(`${useUrl}${url}`, {
+          method,
+          headers,
+          body: params as BodyInit,
+          mode: "cors",
+          signal,
+        }),
+        timeoutPromise(timeout),
+      ]);
       clearLoading();
       if (res.status === 200) {
         resolve(await res.json());
@@ -77,6 +85,14 @@ const request = (url: string, option?: OptionProps): Promise<void> =>
     }
   });
 
+const timeoutPromise = (timeout: number) =>
+  new Promise<void>((resolve, reject) => {
+    setTimeout(() => {
+      resolve({ status: 504, statusText: "timeout" } as any);
+      controller.abort();
+      return;
+    }, timeout);
+  });
 export default request;
 
 export const post = (url: string, data: DynamicIndex): Promise<void> =>
