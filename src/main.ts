@@ -15,6 +15,7 @@ import twoSum from "./leetCode/twoSum";
 import toFixed from "./toFixed";
 import generate from "./generRedomArray";
 import isEmptyObject from "./isEmptyObject";
+import request from "./request";
 
 print("hello word");
 
@@ -121,3 +122,8 @@ print(toFixed(10.2881, 2));
 print("判断是否对象是否是空对象 Determine if an object is an empty object.");
 print(isEmptyObject({}));
 // result: true
+
+request(
+  "127.0.0.1:8888/trans/trans",
+  { method: "post",data: {from: "zh-CN",to: "en",text: "test"}, headers: "application/x-www-form-urlencoded" }
+);
